@@ -1,4 +1,4 @@
-import {readInput, regexGroup} from "./lib.js";
+import {readInput} from "./lib.js";
 import * as assert from "node:assert";
 
 const input = readInput(2)
@@ -18,7 +18,20 @@ const answer = input
         return line.split(' ').map((x) => parseInt(x));
     })
     .filter((report) => {
-        return isSafe(report);
+        if (isSafe(report)) {
+            return true;
+        }
+
+        for (let i = 0; i < report.length; i++) {
+            const left = report.slice(0, i);
+            const right = report.slice(i + 1);
+
+            if (isSafe([...left, ...right])) {
+                return true;
+            }
+        }
+
+        return false;
     })
     .length;
 

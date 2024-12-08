@@ -17,3 +17,12 @@ export function regexGroup(line, regex, group) {
 
     return match?.[group];
 }
+
+export function iterGrid(grid, callback) {
+    for (let y = 0; y < grid.length; y++) {
+        const line = grid[y];
+        for (let x = 0; x < line.length; x++) {
+            callback(line[x], x, y);
+        }
+    }
+}

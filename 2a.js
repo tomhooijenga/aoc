@@ -1,4 +1,4 @@
-import {readInput, regexGroup} from "./lib.js";
+import {readInput} from "./lib.js";
 import * as assert from "node:assert";
 
 const input = readInput(2)

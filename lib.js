@@ -26,3 +26,7 @@ export function iterGrid(grid, callback) {
         }
     }
 }
+
+export function logGrid(grid) {
+    console.log(grid.map((line) => line.join('')).join('\n'));
+}
